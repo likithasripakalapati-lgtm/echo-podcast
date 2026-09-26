@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "daily-tech": {
             title: "The Daily Tech",
             author: "Sarah Chen",
-            image: "images/Daily Tech.jpeg",
+            image: "images/daily tech.jpeg",
             category: "Technology",
             subscribers: "1.2M subscribers",
             episodeCount: "245 episodes",

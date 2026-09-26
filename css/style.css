@@ -241,7 +241,7 @@ body {
     border: none !important;
     outline: none !important;
 
-    background-image: url("../images/Daily Tech.jpeg");
+    background-image: url("../images/daily\ tech.jpeg") !important;
     background-size: cover !important;
     background-position: 54% center !important;
     background-repeat: no-repeat !important;
