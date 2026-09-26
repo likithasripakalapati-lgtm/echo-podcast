@@ -4493,6 +4493,20 @@ body.echo-show-page .back-library svg {
         padding-bottom: 76px !important;
     }
 
+    .sidebar {
+    display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding-bottom: 100px !important;
+    }
+
+    body {
+        background: #0f172a !important;
+    }
+
     body.echo-show-page .show-top-area {
         padding: 25px 20px 30px !important;
     }
