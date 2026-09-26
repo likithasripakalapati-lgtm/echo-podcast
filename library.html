@@ -1,0 +1,2746 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+   Echo - Library
+  </title>
+<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body class="echo-library-page">
+<!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+<div class="sidebar">
+<!-- LOGO -->
+<div class="logo">
+<div class="logo-icon">
+<svg fill="currentColor" height="24" viewbox="0 0 16 16" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707m2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708m5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708m2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0">
+</path>
+</svg>
+</div>
+<span>
+     Echo
+    </span>
+</div>
+<!-- MENU -->
+<div class="menu">
+<!-- HOME -->
+<a class="menu-item" href="index.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+</path>
+<polyline points="9 22 9 12 15 12 15 22">
+</polyline>
+</svg>
+<span>
+      Home
+     </span>
+</a>
+<!-- EXPLORE -->
+<a class="menu-item" href="explore.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="10">
+</circle>
+<polygon points="16 8 14 14 8 16 10 10 16 8">
+</polygon>
+</svg>
+<span>
+      Explore
+     </span>
+</a>
+<!-- LIBRARY ACTIVE -->
+<a class="menu-item active" href="library.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20">
+</path>
+</svg>
+<span>
+      Library
+     </span>
+</a>
+<!-- SETTINGS -->
+<a class="menu-item" href="setting.html">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+</path>
+<circle cx="12" cy="12" r="3">
+</circle>
+</svg>
+<span>
+      Settings
+     </span>
+</a>
+</div>
+</div>
+<!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+<main class="main-content">
+<!-- =====================================================
+             LIBRARY SECTION
+             ===================================================== -->
+<section class="library-section" id="library-section">
+<!-- =================================================
+                 LIBRARY HEADER
+                 THIS STAYS VISIBLE FOR ALL THREE TABS
+                 ================================================= -->
+<div class="library-header">
+<h1>
+      Your Library
+     </h1>
+<div class="library-tabs">
+<button class="library-tab active" data-tab="subscribed" type="button">
+       Subscribed Shows
+      </button>
+<button class="library-tab" data-tab="saved" type="button">
+       Saved Episodes
+      </button>
+<button class="library-tab" data-tab="history" type="button">
+       History
+      </button>
+</div>
+</div>
+<!-- =================================================
+                 SUBSCRIBED SHOWS CONTENT
+                 ================================================= -->
+<div class="library-grid">
+<!-- DAILY TECH -->
+<div class="library-card" data-action="show" data-image="images/Daily Tech.jpeg" data-show="The Daily Tech" data-show-id="daily-tech" data-title="The AI Revolution: What's Next?">
+<div class="library-image">
+<img alt="The Daily Tech" src="images/Daily Tech.jpeg"/>
+<button aria-label="Play The Daily Tech" class="library-play" data-action="play" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<h3>
+       The Daily Tech
+      </h3>
+<p>
+       Sarah Chen
+      </p>
+</div>
+<!-- MYSTERY FILES -->
+<div class="library-card" data-action="show" data-image="images/Mystery Files.jpeg" data-show="Mystery Files" data-show-id="mystery-files" data-title="The Mystery Files">
+<div class="library-image">
+<img alt="Mystery Files" src="images/Mystery Files.jpeg"/>
+<button aria-label="Play Mystery Files" class="library-play" data-action="play" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<h3>
+       Mystery Files
+      </h3>
+<p>
+       Detective Audio
+      </p>
+</div>
+<!-- LAUGH TRACK -->
+<div class="library-card" data-action="show" data-image="images/Laugh Track.jpeg" data-show="Laugh Track" data-show-id="laugh-track" data-title="Laugh Track">
+<div class="library-image">
+<img alt="Laugh Track" src="images/Laugh Track.jpeg"/>
+<button aria-label="Play Laugh Track" class="library-play" data-action="play" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<h3>
+       Laugh Track
+      </h3>
+<p>
+       Comedy Central
+      </p>
+</div>
+<!-- SCIENCE UNLOCKED -->
+<div class="library-card" data-action="show" data-image="images/Science Unlocked.jpeg" data-show="Science Unlocked" data-show-id="science-unlocked" data-title="Science Unlocked">
+<div class="library-image">
+<img alt="Science Unlocked" src="images/Science Unlocked.jpeg"/>
+<button aria-label="Play Science Unlocked" class="library-play" data-action="play" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<h3>
+       Science Unlocked
+      </h3>
+<p>
+       Dr. Maya Williams
+      </p>
+</div>
+<!-- MORNING BRIEFING -->
+<div class="library-card" data-action="show" data-image="images/Morning Briefing.jpeg" data-show="Morning Briefing" data-show-id="morning-briefing" data-title="Morning Briefing">
+<div class="library-image">
+<img alt="Morning Briefing" src="images/Morning Briefing.jpeg"/>
+<button aria-label="Play Morning Briefing" class="library-play" data-action="play" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<h3>
+       Morning Briefing
+      </h3>
+<p>
+       Global News Network
+      </p>
+</div>
+</div>
+<!-- STARTUP STORIES -->
+<section class="show-details" id="startup-stories">
+
+    <div class="show-top-area">
+
+        <button
+            class="back-library"
+            type="button"
+            onclick="backToLibrary()">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true">
+
+                <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+
+            </svg>
+
+            <span>Back</span>
+
+        </button>
+
+
+        <div class="show-hero">
+
+            <img
+                src="images/Startup Stories.jpeg"
+                alt="Startup Stories"
+                class="show-cover">
+
+
+            <div class="show-info">
+
+                <span class="show-category">
+                    Business
+                </span>
+
+                <h1>Startup Stories</h1>
+
+                <p class="show-author">
+                    Venture Voice
+                </p>
+
+                <p class="show-meta">
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">♙</span>
+                        <span>420K subscribers</span>
+                    </span>
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">◉</span>
+                        <span>98 episodes</span>
+                    </span>
+
+                </p>
+
+                <div class="show-actions">
+
+                    <button
+                        class="latest-episode-button"
+                        type="button"
+                        onclick="openEpisodePlayer(
+                            document.querySelector(
+                                '#startup-stories .episode-play'
+                            )
+                        )">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor">
+
+                            <path d="M8 5V19L19 12L8 5Z"></path>
+
+                        </svg>
+
+                        <span>Latest Episode</span>
+
+                    </button>
+
+
+                    <button
+                        class="subscribe-button"
+                        type="button">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M20.8 8.7C20.8 13.5 12 20 12 20S3.2 13.5 3.2 8.7C3.2 5.9 5.1 4 7.6 4C9.2 4 10.7 4.8 12 6.1C13.3 4.8 14.8 4 16.4 4C18.9 4 20.8 5.9 20.8 8.7"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linejoin="round">
+                            </path>
+
+                        </svg>
+
+                        <span>Subscribe</span>
+
+                    </button>
+
+
+                    <button
+                        class="share-button"
+                        type="button"
+                        aria-label="Share">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <circle
+                                cx="18"
+                                cy="5"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="6"
+                                cy="12"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="18"
+                                cy="19"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <path
+                                d="M8.6 10.6L15.4 6.4M8.6 13.4L15.4 17.6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-tabs">
+
+        <button
+            class="show-tab active"
+            type="button"
+            onclick="showEpisodes(this)">
+
+            Episodes
+
+        </button>
+
+        <button
+            class="show-tab"
+            type="button"
+            onclick="showAbout(this)">
+
+            About
+
+        </button>
+
+    </div>
+
+
+    <div class="episodes-list">
+
+        <div
+            class="episode-card"
+            data-duration="3312"
+            data-show-id="startup-stories"
+            data-start-time="0"
+            data-title="From Garage to $10B: The Stripe Story">
+
+            <div class="episode-number">
+                01
+            </div>
+
+            <div class="episode-content">
+
+                <h3>
+                    From Garage to $10B: The Stripe Story
+                </h3>
+
+                <p>
+                    Startup Stories
+                </p>
+
+                <span>
+                    2024-01-20 55:12
+                </span>
+
+            </div>
+
+            <button
+                class="episode-play"
+                type="button"
+                onclick="openEpisodePlayer(this)"
+                aria-label="Play episode">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor">
+
+                    <path d="M8 5V19L19 12L8 5Z"></path>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-about">
+
+        <h2>About this show</h2>
+
+        <p>
+            Behind-the-scenes stories from founders who built
+            billion-dollar companies.
+        </p>
+
+        <h3>Host</h3>
+
+        <div class="host-info">
+
+            <div class="host-avatar"></div>
+
+            <div>
+                <strong>Venture Voice</strong>
+                <span>Creator &amp; Host</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- MINDFUL MOMENTS -->
+<section class="show-details" id="mindful-moments">
+
+    <div class="show-top-area">
+
+        <button
+            class="back-library"
+            type="button"
+            onclick="backToLibrary()">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true">
+
+                <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+
+            </svg>
+
+            <span>Back</span>
+
+        </button>
+
+
+        <div class="show-hero">
+
+            <img
+                src="images/Mindful Moments.jpeg"
+                alt="Mindful Moments"
+                class="show-cover">
+
+
+            <div class="show-info">
+
+                <span class="show-category">
+                    Health
+                </span>
+
+                <h1>Mindful Moments</h1>
+
+                <p class="show-author">
+                    Wellness Weekly
+                </p>
+
+                <p class="show-meta">
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">♙</span>
+                        <span>420K subscribers</span>
+                    </span>
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">◉</span>
+                        <span>98 episodes</span>
+                    </span>
+
+                </p>
+
+                <div class="show-actions">
+
+                    <button
+                        class="latest-episode-button"
+                        type="button"
+                        onclick="openEpisodePlayer(
+                            document.querySelector(
+                                '#mindful-moments .episode-play'
+                            )
+                        )">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor">
+
+                            <path d="M8 5V19L19 12L8 5Z"></path>
+
+                        </svg>
+
+                        <span>Latest Episode</span>
+
+                    </button>
+
+
+                    <button
+                        class="subscribe-button"
+                        type="button">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <path
+                                d="M20.8 8.7C20.8 13.5 12 20 12 20S3.2 13.5 3.2 8.7C3.2 5.9 5.1 4 7.6 4C9.2 4 10.7 4.8 12 6.1C13.3 4.8 14.8 4 16.4 4C18.9 4 20.8 5.9 20.8 8.7"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linejoin="round">
+                            </path>
+
+                        </svg>
+
+                        <span>Subscribe</span>
+
+                    </button>
+
+
+                    <button
+                        class="share-button"
+                        type="button"
+                        aria-label="Share">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none">
+
+                            <circle
+                                cx="18"
+                                cy="5"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="6"
+                                cy="12"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="18"
+                                cy="19"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <path
+                                d="M8.6 10.6L15.4 6.4M8.6 13.4L15.4 17.6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-tabs">
+
+        <button
+            class="show-tab active"
+            type="button"
+            onclick="showEpisodes(this)">
+
+            Episodes
+
+        </button>
+
+        <button
+            class="show-tab"
+            type="button"
+            onclick="showAbout(this)">
+
+            About
+
+        </button>
+
+    </div>
+
+
+    <div class="episodes-list">
+
+        <div
+            class="episode-card"
+            data-duration="750"
+            data-show-id="mindful-moments"
+            data-start-time="0"
+            data-title="A Calm Start to Your Day">
+
+            <div class="episode-number">
+                01
+            </div>
+
+            <div class="episode-content">
+
+                <h3>
+                    A Calm Start to Your Day
+                </h3>
+
+                <p>
+                    Mindful Moments
+                </p>
+
+                <span>
+                    2024-01-18 12:30
+                </span>
+
+            </div>
+
+            <button
+                class="episode-play"
+                type="button"
+                onclick="openEpisodePlayer(this)"
+                aria-label="Play episode">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor">
+
+                    <path d="M8 5V19L19 12L8 5Z"></path>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-about">
+
+        <h2>About this show</h2>
+
+        <p>
+            Gentle conversations and practical moments for a calmer,
+            more mindful day.
+        </p>
+
+        <h3>Host</h3>
+
+        <div class="host-info">
+
+            <div class="host-avatar"></div>
+
+            <div>
+                <strong>Wellness Weekly</strong>
+                <span>Creator &amp; Host</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =================================================
+                 SAVED EPISODES CONTENT
+
+                 IMPORTANT:
+                 This is INSIDE library-section now.
+                 Therefore Your Library + tabs remain visible.
+                 ================================================= -->
+<div class="saved-episodes-section" id="saved-episodes-section" style="display: none;">
+<div class="saved-episodes-list">
+<!-- SAVED 1 -->
+<article class="episode-card saved-episode-card" data-show-id="daily-tech" data-start-time="2700">
+<div class="saved-episode-image">
+<img alt="The Daily Tech" src="images/Daily Tech.jpeg"/>
+<button aria-label="Play The AI Revolution" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         The AI Revolution: What's Next?
+        </h3>
+<p>
+         The Daily Tech
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-15
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 0 1 1 0V9l3.5 2a.5.5 0 0 1-.496.868L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          45:32
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- SAVED 2 -->
+<article class="episode-card saved-episode-card" data-show-id="daily-tech" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="The Daily Tech" src="images/Daily Tech.jpeg"/>
+<button aria-label="Play Apple Vision Pro" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         Apple Vision Pro: First Impressions
+        </h3>
+<p>
+         The Daily Tech
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-12
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 0 1 1 0V9l3.5 2a.5.5 0 0 1-.496.868L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          38:15
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- SAVED 3 -->
+<article class="episode-card saved-episode-card" data-show-id="mystery-files" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Mystery Files" src="images/Mystery Files.jpeg"/>
+<button aria-label="Play Flight 370" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         The Disappearance of Flight 370
+        </h3>
+<p>
+         Mystery Files
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-14
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          52:48
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- SAVED 4 -->
+<article class="episode-card saved-episode-card" data-show-id="laugh-track" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Laugh Track" src="images/Laugh Track.jpeg"/>
+<button aria-label="Play Comedy Gold" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         Comedy Gold: Best of 2023
+        </h3>
+<p>
+         Laugh Track
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-10
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .868.496L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          1:02:30
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- SAVED 5 -->
+<article class="episode-card saved-episode-card" data-show-id="science-unlocked" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Science Unlocked" src="images/Science Unlocked.jpeg"/>
+<button aria-label="Play James Webb" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         The James Webb Telescope: New Discoveries
+        </h3>
+<p>
+         Science Unlocked
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-13
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .868-.496L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          41:20
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- SAVED 6 -->
+<article class="episode-card saved-episode-card" data-show-id="morning-briefing" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Morning Briefing" src="images/Morning Briefing.jpeg"/>
+<button aria-label="Play Global Markets" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         Global Markets Update: January 2024
+        </h3>
+<p>
+         Morning Briefing
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-15
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 1 .252.434l3.5 2a.5.5 0 0 1-.496.868L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          28:45
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+</div>
+</div>
+<!-- =================================================
+                 HISTORY CONTENT
+                 ================================================= -->
+<div class="history-section" id="history-section" style="display: none;">
+<div class="history-list">
+<!-- HISTORY 1 -->
+<article class="episode-card history-episode-card" data-show-id="daily-tech" data-start-time="2700">
+<div class="saved-episode-image">
+<img alt="The Daily Tech" src="images/Daily Tech.jpeg"/>
+<button aria-label="Play The AI Revolution" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         The AI Revolution: What's Next?
+        </h3>
+<p>
+         The Daily Tech
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-15
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          45:32
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- HISTORY 2 -->
+<article class="episode-card history-episode-card" data-show-id="mystery-files" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Mystery Files" src="images/Mystery Files.jpeg"/>
+<button aria-label="Play Flight 370" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         The Disappearance of Flight 370
+        </h3>
+<p>
+         Mystery Files
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-14
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          52:48
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- HISTORY 3 -->
+<article class="episode-card history-episode-card" data-show-id="science-unlocked" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Science Unlocked" src="images/Science Unlocked.jpeg"/>
+<button aria-label="Play James Webb Telescope" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         The James Webb Telescope: New Discoveries
+        </h3>
+<p>
+         Science Unlocked
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-13
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .868-.496L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0">
+</path>
+</svg>
+          41:20
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+<!-- HISTORY 4 -->
+<article class="episode-card history-episode-card" data-show-id="morning-briefing" data-start-time="0">
+<div class="saved-episode-image">
+<img alt="Morning Briefing" src="images/Morning Briefing.jpeg"/>
+<button aria-label="Play Global Markets" class="saved-episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-content">
+<h3>
+         Global Markets Update: January 2024
+        </h3>
+<p>
+         Morning Briefing
+        </p>
+<div class="saved-episode-meta">
+<span>
+          2024-01-15
+         </span>
+<span class="episode-duration">
+<svg fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3.5a.5.5 0 1 0-1 0V9a.5.5 0 0 1 .252.434l3.5 2a.5.5 0 0 0 .868-.496L8 8.71z">
+</path>
+<path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 0 14 0">
+</path>
+</svg>
+          28:45
+         </span>
+</div>
+<div class="saved-episode-progress">
+<div class="saved-episode-progress-fill">
+</div>
+</div>
+</div>
+<div class="playing-indicator">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =====================================================
+             SHOW DETAILS
+             ===================================================== -->
+<!-- DAILY TECH -->
+<section class="show-details" id="daily-tech">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="The Daily Tech" class="show-cover" src="images/Daily Tech.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        Technology
+       </span>
+<h1>
+        The Daily Tech
+       </h1>
+<p class="show-author">
+        Sarah Chen
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-people-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5">
+</path>
+</svg>
+<span>
+          1.2M subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-headphones" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5">
+</path>
+</svg>
+<span>
+          245 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#daily-tech .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>Latest Episode</span>
+</button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="2732" data-show-id="daily-tech" data-start-time="2700">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        The AI Revolution: What's Next?
+       </h3>
+<p>
+        The Daily Tech
+       </p>
+<span>
+        2024-01-15 45:32
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+<div class="episode-card">
+<div class="episode-number">
+       02
+      </div>
+<div class="episode-content">
+<h3>
+        Apple Vision Pro: First Impressions
+       </h3>
+<p>
+        The Daily Tech
+       </p>
+<span>
+        2024-01-12
+                            38:15
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Your daily dose of technology news, trends, and insights from Silicon Valley and
+                    beyond. Join us as we explore the latest innovations shaping our digital future.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Sarah Chen
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<!-- MYSTERY FILES -->
+<section class="show-details" id="mystery-files">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Mystery Files" class="show-cover" src="images/Mystery Files.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        True Crime
+       </span>
+<h1>
+        Mystery Files
+       </h1>
+<p class="show-author">
+        Detective Audio
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-people-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5">
+</path>
+</svg>
+<span>
+          2.5M subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-headphones" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5">
+</path>
+</svg>
+<span>
+          189 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#mystery-files .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>
+          Latest Episode
+         </span>
+</button>
+</button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="3168" data-show-id="mystery-files" data-start-time="0">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        The Disappearance of Flight 370
+       </h3>
+<p>
+        An investigation into one of aviation's greatest mysteries
+       </p>
+<span>
+        2024-01-14 52:48
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Dive deep into unsolved mysteries, cold cases, and fascinating criminal
+                    investigations. Each episode unravels a new puzzle.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Detective Audio
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<!-- LAUGH TRACK -->
+<section class="show-details" id="laugh-track">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Laugh Track" class="show-cover" src="images/Laugh Track.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        Comedy
+       </span>
+<h1>
+        Laugh Track
+       </h1>
+<p class="show-author">
+        Comedy Central
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-people-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5">
+</path>
+</svg>
+<span>
+          890K subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-headphones" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5">
+</path>
+</svg>
+<span>
+          312 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#laugh-track .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>
+          Latest Episode
+         </span>
+</button>
+</button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="3750" data-show-id="laugh-track" data-start-time="0">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        Comedy Gold: Best of 2023
+       </h3>
+<p>
+        Laugh Track
+       </p>
+<span>
+        2024-01-10 1:02:30
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Stand-up highlights, comedy sketches, and hilarious conversations with the funniest
+                    people in entertainment.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Comedy Central
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<!-- SCIENCE UNLOCKED -->
+<section class="show-details" id="science-unlocked">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Science Unlocked" class="show-cover" src="images/Science Unlocked.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        Science
+       </span>
+<h1>
+        Science Unlocked
+       </h1>
+<p class="show-author">
+        Dr. Maya Williams
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-people-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5">
+</path>
+</svg>
+<span>
+          750K subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-headphones" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5">
+</path>
+</svg>
+<span>
+          156 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#science-unlocked .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>
+          Latest Episode
+         </span>
+</button>
+</button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="2480" data-show-id="science-unlocked" data-start-time="0">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        The James Webb Telescope: New Discoveries
+       </h3>
+<p>
+        Science Unlocked
+       </p>
+<span>
+        2024-01-13 41:20
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Breaking down complex scientific concepts into fascinating stories. From quantum
+                    physics to evolutionary biology.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Dr. Maya Williams
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<!-- MORNING BRIEFING -->
+<section class="show-details" id="morning-briefing">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Morning Briefing" class="show-cover" src="images/Morning Briefing.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        News
+       </span>
+<h1>
+        Morning Briefing
+       </h1>
+<p class="show-author">
+        Global News Network
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-people-fill" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5">
+</path>
+</svg>
+<span>
+          3.1M subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<svg aria-hidden="true" class="bi bi-headphones" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5">
+</path>
+</svg>
+<span>
+          520 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#morning-briefing .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>
+          Latest Episode
+         </span>
+</button>
+</button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="1725" data-show-id="morning-briefing" data-start-time="0">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        Global Markets Update: January 2024
+       </h3>
+<p>
+        Morning Briefing
+       </p>
+<span>
+        2024-01-15 28:45
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Start your day informed with comprehensive news coverage from around the world.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Global News Network
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<!-- STARTUP STORIES -->
+<section class="show-details" id="startup-stories">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Startup Stories" class="show-cover" src="images/Startup Stories.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        Business
+       </span>
+<h1>
+        Startup Stories
+       </h1>
+<p class="show-author">
+        Venture Voice
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<span aria-hidden="true">
+          ♙
+         </span>
+<span>
+          420K subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<span aria-hidden="true">
+          ◉
+         </span>
+<span>
+          98 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#startup-stories .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>
+          Latest Episode
+         </span>
+</button>
+</button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="3312" data-show-id="startup-stories" data-start-time="0" data-title="From Garage to $10B: The Stripe Story">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        From Garage to $10B: The Stripe Story
+       </h3>
+<p>
+        Startup Stories
+       </p>
+<span>
+        2024-01-20 55:12
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Behind-the-scenes stories from founders who built billion-dollar companies.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Venture Voice
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<section class="show-details" id="mindful-moments">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Mindful Moments" class="show-cover" src="images/Mindful Moments.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        Health
+       </span>
+<h1>
+        Mindful Moments
+       </h1>
+<p class="show-author">
+        Wellness Weekly
+       </p>
+<p class="show-meta">
+<span class="show-meta-item">
+<span aria-hidden="true">
+          ♙
+         </span>
+<span>
+          420K subscribers
+         </span>
+</span>
+<span class="show-meta-item">
+<span aria-hidden="true">
+          ◉
+         </span>
+<span>
+          98 episodes
+         </span>
+</span>
+</p>
+<div class="show-actions">
+<button class="latest-episode-button" onclick="openEpisodePlayer(document.querySelector('#mindful-moments .episode-play'))" type="button">
+<svg fill="currentColor" viewbox="0 0 24 24">
+<path d="M8 5V19L19 12L8 5Z">
+</path>
+</svg>
+<span>
+          Latest Episode
+         </span>
+</button></button>
+<button class="subscribe-button favorite-button" id="favoriteButton" type="button" aria-label="Subscribe">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16">
+  <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z"/>
+</svg>
+    Subscribe
+</button>
+<button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<div class="episode-card" data-duration="750" data-show-id="mindful-moments" data-start-time="0" data-title="A Calm Start to Your Day">
+<div class="episode-number">
+       01
+      </div>
+<div class="episode-content">
+<h3>
+        A Calm Start to Your Day
+       </h3>
+<p>
+        Mindful Moments
+       </p>
+<span>
+        2024-01-18 12:30
+       </span>
+</div>
+<button aria-label="Play episode" class="episode-play" onclick="openEpisodePlayer(this)" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" aria-hidden="true"><path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path></svg></button>
+</div>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Gentle conversations and practical moments for a calmer, more mindful day.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Wellness Weekly
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+<!-- STARTUP STORIES -->
+<section class="show-details" id="startup-stories">
+
+    <div class="show-top-area">
+
+        <button
+            class="back-library"
+            type="button"
+            onclick="backToLibrary()">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true">
+
+                <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+
+            </svg>
+
+            <span>Back</span>
+
+        </button>
+
+
+        <div class="show-hero">
+
+            <img
+                src="images/Startup Stories.jpeg"
+                alt="Startup Stories"
+                class="show-cover">
+
+
+            <div class="show-info">
+
+                <span class="show-category">
+                    Business
+                </span>
+
+                <h1>
+                    Startup Stories
+                </h1>
+
+                <p class="show-author">
+                    Venture Voice
+                </p>
+
+                <p class="show-meta">
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">♙</span>
+                        <span>420K subscribers</span>
+                    </span>
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">◉</span>
+                        <span>98 episodes</span>
+                    </span>
+
+                </p>
+
+
+                <div class="show-actions">
+
+                    <button
+                        class="latest-episode-button"
+                        type="button"
+                        onclick="openEpisodePlayer(document.querySelector('#startup-stories .episode-play'))">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor">
+
+                            <path d="M8 5V19L19 12L8 5Z"></path>
+
+                        </svg>
+
+                        <span>Latest Episode</span>
+
+                    </button>
+
+
+                    <button
+                        class="subscribe-button"
+                        type="button">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true">
+
+                            <path
+                                d="M20.8 8.7C20.8 13.5 12 20 12 20S3.2 13.5 3.2 8.7C3.2 5.9 5.1 4 7.6 4C9.2 4 10.7 4.8 12 6.1C13.3 4.8 14.8 4 16.4 4C18.9 4 20.8 5.9 20.8 8.7"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linejoin="round">
+                            </path>
+
+                        </svg>
+
+                        <span>Subscribe</span>
+
+                    </button>
+
+
+                    <button
+                        class="share-button"
+                        type="button"
+                        aria-label="Share">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true">
+
+                            <circle
+                                cx="18"
+                                cy="5"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="6"
+                                cy="12"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="18"
+                                cy="19"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <path
+                                d="M8.6 10.6L15.4 6.4M8.6 13.4L15.4 17.6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-tabs">
+
+        <button
+            class="show-tab active"
+            onclick="showEpisodes(this)"
+            type="button">
+
+            Episodes
+
+        </button>
+
+        <button
+            class="show-tab"
+            onclick="showAbout(this)"
+            type="button">
+
+            About
+
+        </button>
+
+    </div>
+
+
+    <div class="episodes-list">
+
+        <div
+            class="episode-card"
+            data-duration="3312"
+            data-show-id="startup-stories"
+            data-start-time="0"
+            data-title="From Garage to $10B: The Stripe Story">
+
+            <div class="episode-number">
+                01
+            </div>
+
+            <div class="episode-content">
+
+                <h3>
+                    From Garage to $10B: The Stripe Story
+                </h3>
+
+                <p>
+                    Startup Stories
+                </p>
+
+                <span>
+                    2024-01-20 55:12
+                </span>
+
+            </div>
+
+            <button
+                class="episode-play"
+                type="button"
+                onclick="openEpisodePlayer(this)"
+                aria-label="Play episode">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor">
+
+                    <path d="M8 5V19L19 12L8 5Z"></path>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-about">
+
+        <h2>
+            About this show
+        </h2>
+
+        <p>
+            Behind-the-scenes stories from founders who built billion-dollar companies.
+        </p>
+
+        <h3>
+            Host
+        </h3>
+
+        <div class="host-info">
+
+            <div class="host-avatar"></div>
+
+            <div>
+
+                <strong>
+                    Venture Voice
+                </strong>
+
+                <span>
+                    Creator &amp; Host
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- MINDFUL MOMENTS -->
+<section class="show-details" id="mindful-moments">
+
+    <div class="show-top-area">
+
+        <button
+            class="back-library"
+            type="button"
+            onclick="backToLibrary()">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true">
+
+                <path
+                    d="M15 18L9 12L15 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+
+            </svg>
+
+            <span>Back</span>
+
+        </button>
+
+
+        <div class="show-hero">
+
+            <img
+                src="images/Mindful Moments.jpeg"
+                alt="Mindful Moments"
+                class="show-cover">
+
+
+            <div class="show-info">
+
+                <span class="show-category">
+                    Health
+                </span>
+
+                <h1>
+                    Mindful Moments
+                </h1>
+
+                <p class="show-author">
+                    Wellness Weekly
+                </p>
+
+                <p class="show-meta">
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">♙</span>
+                        <span>420K subscribers</span>
+                    </span>
+
+                    <span class="show-meta-item">
+                        <span aria-hidden="true">◉</span>
+                        <span>98 episodes</span>
+                    </span>
+
+                </p>
+
+
+                <div class="show-actions">
+
+                    <button
+                        class="latest-episode-button"
+                        type="button"
+                        onclick="openEpisodePlayer(document.querySelector('#mindful-moments .episode-play'))">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor">
+
+                            <path d="M8 5V19L19 12L8 5Z"></path>
+
+                        </svg>
+
+                        <span>Latest Episode</span>
+
+                    </button>
+
+
+                    <button
+                        class="subscribe-button"
+                        type="button">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true">
+
+                            <path
+                                d="M20.8 8.7C20.8 13.5 12 20 12 20S3.2 13.5 3.2 8.7C3.2 5.9 5.1 4 7.6 4C9.2 4 10.7 4.8 12 6.1C13.3 4.8 14.8 4 16.4 4C18.9 4 20.8 5.9 20.8 8.7"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linejoin="round">
+                            </path>
+
+                        </svg>
+
+                        <span>Subscribe</span>
+
+                    </button>
+
+
+                    <button
+                        class="share-button"
+                        type="button"
+                        aria-label="Share">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true">
+
+                            <circle
+                                cx="18"
+                                cy="5"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="6"
+                                cy="12"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="18"
+                                cy="19"
+                                r="3"
+                                stroke="currentColor"
+                                stroke-width="2">
+                            </circle>
+
+                            <path
+                                d="M8.6 10.6L15.4 6.4M8.6 13.4L15.4 17.6"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round">
+                            </path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-tabs">
+
+        <button
+            class="show-tab active"
+            onclick="showEpisodes(this)"
+            type="button">
+
+            Episodes
+
+        </button>
+
+        <button
+            class="show-tab"
+            onclick="showAbout(this)"
+            type="button">
+
+            About
+
+        </button>
+
+    </div>
+
+
+    <div class="episodes-list">
+
+        <div
+            class="episode-card"
+            data-duration="750"
+            data-show-id="mindful-moments"
+            data-start-time="0"
+            data-title="A Calm Start to Your Day">
+
+            <div class="episode-number">
+                01
+            </div>
+
+            <div class="episode-content">
+
+                <h3>
+                    A Calm Start to Your Day
+                </h3>
+
+                <p>
+                    Mindful Moments
+                </p>
+
+                <span>
+                    2024-01-18 12:30
+                </span>
+
+            </div>
+
+            <button
+                class="episode-play"
+                type="button"
+                onclick="openEpisodePlayer(this)"
+                aria-label="Play episode">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor">
+
+                    <path d="M8 5V19L19 12L8 5Z"></path>
+
+                </svg>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="show-about">
+
+        <h2>
+            About this show
+        </h2>
+
+        <p>
+            Gentle conversations and practical moments for a calmer, more mindful day.
+        </p>
+
+        <h3>
+            Host
+        </h3>
+
+        <div class="host-info">
+
+            <div class="host-avatar"></div>
+
+            <div>
+
+                <strong>
+                    Wellness Weekly
+                </strong>
+
+                <span>
+                    Creator &amp; Host
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FUTURE FORWARD -->
+<section class="show-details" id="future-forward">
+<div class="show-top-area">
+<button class="back-library" onclick="backToLibrary()" type="button">
+<svg fill="currentColor" height="13" viewbox="0 0 16 16" width="13" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" fill-rule="evenodd">
+</path>
+</svg>
+<span>
+       Back
+      </span>
+</button>
+<div class="show-hero">
+<img alt="Future Forward" class="show-cover" src="images/Future Forward.jpeg"/>
+<div class="show-info">
+<span class="show-category">
+        Technology
+       </span>
+<h1>
+        Future Forward
+       </h1>
+<p class="show-author">
+        Innovation Lab
+       </p>
+<div class="show-actions">
+<button class="subscribe-button" type="button"><span>Subscribe</span></button><button aria-label="Share" class="share-button" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg></button><button aria-label="Favorite" class="favorite-button" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button></div>
+</div>
+</div>
+</div>
+<div class="show-tabs">
+<button class="show-tab active" onclick="showEpisodes(this)" type="button">
+      Episodes
+     </button>
+<button class="show-tab" onclick="showAbout(this)" type="button">
+      About
+     </button>
+</div>
+<div class="episodes-list">
+<p class="no-episodes">
+      No episodes available.
+     </p>
+</div>
+<div class="show-about">
+<h2>
+      About this show
+     </h2>
+<p>
+      Exploring the technologies and ideas that will shape tomorrow.
+     </p>
+<h3>
+      Host
+     </h3>
+<div class="host-info">
+<div class="host-avatar">
+</div>
+<div>
+<strong>
+        Innovation Lab
+       </strong>
+<span>
+        Creator &amp; Host
+       </span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- =====================================================
+         BOTTOM VISUAL PLAYER
+         ===================================================== -->
+
+<div class="music-player empty" id="musicPlayer">
+<div class="player-empty" id="playerEmpty">Select an episode to start listening</div>
+<div class="player-info">
+<img alt="Now playing" id="playerImage" src="images/Daily Tech.jpeg"/>
+<div class="player-text">
+<h4 id="playerTitle"></h4>
+<p id="playerShow"></p>
+</div>
+</div>
+<div class="player-controls">
+<button aria-label="Previous episode" class="player-button" id="previousButton" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-start" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L5 8.752V12a.5.5 0 0 1-1 0zm7.5.633L5.696 8l5.804 3.367z"></path></svg>
+</button>
+<button aria-label="Play" class="main-play" id="mainPlay" type="button">
+<svg class="play-icon" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.693-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"></path>
+</svg>
+<svg class="pause-icon" fill="currentColor" height="16" style="display:none;" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5"></path>
+</svg>
+</button>
+<button aria-label="Next episode" class="player-button" id="nextButton" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-end" viewBox="0 0 16 16" aria-hidden="true"><path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.713 3.31 4 3.655 4 4.308v7.384c0 .653.713.998 1.233.696L11.5 8.752V12a.5.5 0 0 0 1 0zM5 4.633L10.804 8 5 11.367z"></path></svg>
+</button>
+</div>
+<div class="player-volume">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="volume-icon bi bi-volume-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12zM6.312 6.39 8 5.04v5.92L6.312 9.61A.5.5 0 0 0 6 9.5H4v-3h2a.5.5 0 0 0 .312-.11M12.025 8a4.5 4.5 0 0 1-1.318 3.182L10 10.475A3.5 3.5 0 0 0 11.025 8 3.5 3.5 0 0 0 10 5.525l.707-.707A4.5 4.5 0 0 1 12.025 8"></path></svg>
+<div aria-label="Volume" aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="volume-bar" id="volumeBar" role="slider" tabindex="0">
+<div class="volume-progress" id="volumeProgress"></div>
+<div class="volume-dot" id="volumeDot"></div>
+</div>
+</div>
+<button aria-label="Open Music File" class="fullscreen-button" id="fullscreenButton" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1.5A.5.5 0 0 1 1.5 1h3a.5.5 0 0 1 0 1H2.707l3.147 3.146a.5.5 0 0 1-.708.708L2 2.707V4.5a.5.5 0 0 1-1 0v-3zM10.5 1a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V2.707L6.354 5.854a.5.5 0 1 1-.708-.708L8.793 2H7a.5.5 0 0 1 0-1zM1.5 10a.5.5 0 0 1 .5.5v1.793l3.146-3.147a.5.5 0 0 1 .708.708L2.707 13H4.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5m13-1a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1h1.793l-3.147-3.146a.5.5 0 0 1-.708-.708L13.293 12.293V10.5a.5.5 0 0 1 1 0z"></path></svg></button>
+</div>
+
+<!-- =====================================================
+         FULLSCREEN VISUAL PLAYER
+         ===================================================== -->
+<div class="fullscreen-player" id="fullscreenPlayer">
+<div class="fullscreen-top">
+<button aria-label="Close" class="fullscreen-close" id="fullscreenClose" type="button">
+<svg fill="none" viewbox="0 0 24 24">
+<path d="M6 6L18 18" stroke="currentColor" stroke-linecap="round" stroke-width="2.5">
+</path>
+<path d="M18 6L6 18" stroke="currentColor" stroke-linecap="round" stroke-width="2.5">
+</path>
+</svg>
+</button>
+<div class="fullscreen-actions">
+<button aria-label="Share" class="fullscreen-action-share" data-action="share" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"></path></svg>
+</button>
+<button aria-label="Favorite" class="fullscreen-action-heart" data-action="favorite" type="button">
+<svg class="bi bi-suit-heart" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 0 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z">
+</path>
+</svg>
+</button>
+</div>
+</div>
+<div class="fullscreen-content">
+<img alt="The Daily Tech" class="fullscreen-cover" id="fullscreenImage" src="images/Daily Tech.jpeg"/>
+<h1 id="fullscreenTitle">
+     The AI Revolution: What's Next?
+    </h1>
+<p id="fullscreenShow">
+     The Daily Tech
+    </p>
+<div class="fullscreen-progress-area">
+<div class="fullscreen-progress">
+<div class="fullscreen-progress-fill">
+</div>
+<div class="fullscreen-progress-dot">
+</div>
+</div>
+<div class="fullscreen-time">
+<span>
+       0:00
+      </span>
+<span>
+       45:32
+      </span>
+</div>
+</div>
+<div class="fullscreen-main-controls">
+<button aria-label="Previous" class="fullscreen-skip" id="fullscreenPrevious" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-start" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.52-.302 1.233.043 1.233.696v7.384c0 .653-.713.998-1.233.696L5 8.752V12a.5.5 0 0 1-1 0zm7.5.633L5.696 8l5.804 3.367z"></path></svg>
+</button>
+<button aria-label="Play" class="fullscreen-play" id="fullscreenPlay" type="button">
+<svg class="play-icon" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393">
+</path>
+</svg>
+<svg class="pause-icon" fill="currentColor" height="16" style="display:none;" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5m4 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5">
+</path>
+</svg>
+</button>
+<button aria-label="Next" class="fullscreen-skip" id="fullscreenNext" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-end" viewBox="0 0 16 16" aria-hidden="true"><path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.713 3.31 4 3.655 4 4.308v7.384c0 .653.713.998 1.233.696L11.5 8.752V12a.5.5 0 0 0 1 0zM5 4.633L10.804 8 5 11.367z"></path></svg>
+</button>
+</div>
+<div class="fullscreen-bottom-controls">
+<button aria-label="Playback speed" class="speed-button" data-action="speed" type="button">
+      1x
+     </button>
+<div class="fullscreen-volume">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="volume-icon bi bi-volume-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 4a.5.5 0 0 0-.812-.39L5.825 5.5H3.5A.5.5 0 0 0 3 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 9 12zM6.312 6.39 8 5.04v5.92L6.312 9.61A.5.5 0 0 0 6 9.5H4v-3h2a.5.5 0 0 0 .312-.11M12.025 8a4.5 4.5 0 0 1-1.318 3.182L10 10.475A3.5 3.5 0 0 0 11.025 8 3.5 3.5 0 0 0 10 5.525l.707-.707A4.5 4.5 0 0 1 12.025 8"></path></svg>
+<div aria-label="Volume" class="fullscreen-volume-bar" id="fullscreenVolumeBar" role="slider" tabindex="0">
+<div class="fullscreen-volume-fill">
+</div>
+<div class="fullscreen-volume-dot">
+</div>
+</div>
+</div>
+<button aria-label="Sleep timer" class="bottom-icon-button" data-action="sleep" type="button">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"></path></svg>
+</button>
+<button aria-label="Notes" class="bottom-icon-button" data-action="notes" type="button">
+<svg class="bi bi-file-earmark-text" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zM5.5 12a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z">
+</path>
+<path d="M14 4.5V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-13A1.5 1.5 0 0 1 3.5 0H9a.5.5 0 0 1 .354.146l4.5 4.5A.5.5 0 0 1 14 5zM13 14V5.5h-3A1.5 1.5 0 0 1 8.5 4V1h-5a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5zM9.5 1.707V4a.5.5 0 0 0 .5.5h2.293z">
+</path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+<script src="js/script.js">
+</script>
+</body>
+</html>
