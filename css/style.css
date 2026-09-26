@@ -2565,6 +2565,17 @@ body.echo-explore-page .main-content:has(.show-details.active){
     }
 }
 
+
+body.echo-home-page.echo-inline-show-page .main-content {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+body.echo-home-page.echo-inline-show-page .main-content:has(.show-details.active) {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
 @media (max-width: 600px) {
     .main-content {
         margin-left: 0 !important;
@@ -2581,7 +2592,6 @@ body.echo-explore-page .main-content:has(.show-details.active){
 body.echo-home-page .show-details.active{
     margin-left: 0 !important;
 }
-
 body.echo-explore-page .show-details.active{
     margin-left: 0 !important;
 }
@@ -10249,5 +10259,129 @@ body.echo-settings-page .settings-section .echo-signout-row .settings-icon svg {
     .trending-section .trending-row {
         display: flex !important;
         gap: 30px !important;
+    }
+}
+
+/* =========================================================
+   HOME - REMOVE THIN STRIP ABOVE EXTENDED PODCAST PAGE
+   ========================================================= */
+
+@media (min-width: 601px) {
+
+    body.echo-home-page.echo-inline-show-page .main-content {
+        margin-left: 250px !important;
+        width: calc(100vw - 250px) !important;
+        padding: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 120px !important;
+        box-sizing: border-box !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page
+    .main-content > .show-details.active {
+        margin: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        top: 0 !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page
+    .main-content > .show-details.active
+    .show-top-area {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+    }
+}
+
+/* =========================================================
+   HOME - REMOVE ONLY THE TOP STRIP ON INLINE SHOW PAGE
+========================================================= */
+
+@media (min-width: 601px) {
+
+    body.echo-home-page.echo-inline-show-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #101014 !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page .main-content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        outline: 0 !important;
+        background: #101014 !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page
+    .main-content:has(.show-details.active) {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        outline: 0 !important;
+        background: #101014 !important;
+    }
+}
+
+@media (min-width: 601px) {
+
+    body.echo-home-page.echo-inline-show-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #101014 !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page .main-content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        outline: 0 !important;
+        background: #101014 !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page
+    .main-content:has(.show-details.active) {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        outline: 0 !important;
+        background: #101014 !important;
+    }
+}
+
+ /* New Releases + Trending Now image rounded corners */
+.new-releases-section .podcast-image img,
+.trending-section .podcast-image img {
+    border-radius: 18px !important;
+}
+
+/* =========================================================
+   HOME - INLINE SHOW PAGE BACKGROUND
+========================================================= */
+
+@media (min-width: 601px) {
+
+    body.echo-home-page.echo-inline-show-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #0f172a !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page .main-content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        outline: 0 !important;
+        background: #0f172a !important;
+    }
+
+    body.echo-home-page.echo-inline-show-page
+    .main-content:has(.show-details.active) {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: 0 !important;
+        outline: 0 !important;
+        background: #0f172a !important;
     }
 }

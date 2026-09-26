@@ -5935,7 +5935,44 @@ document.addEventListener(
             }
         );
     }
+document.addEventListener("click", function () {
+    if (!document.body.classList.contains("echo-inline-show-page")) {
+        return;
+    }
 
+    setTimeout(function () {
+        const section = document.querySelector(".show-details.active");
+
+        if (!section) return;
+
+        console.log("ACTIVE SHOW:", section);
+        console.log("PARENT:", section.parentElement);
+        console.log("SHOW TOP AREA:", section.querySelector(".show-top-area"));
+
+        const rect = section.getBoundingClientRect();
+
+        console.log("SHOW TOP:", rect.top);
+        console.log("SHOW LEFT:", rect.left);
+        console.log("SHOW HEIGHT:", rect.height);
+
+        const parent = section.parentElement;
+
+        console.log(
+            "PARENT TOP:",
+            parent.getBoundingClientRect().top
+        );
+
+        console.log(
+            "PARENT PADDING TOP:",
+            getComputedStyle(parent).paddingTop
+        );
+
+        console.log(
+            "PARENT MARGIN TOP:",
+            getComputedStyle(parent).marginTop
+        );
+    }, 100);
+});
     /* =========================================================
        FINAL INITIALIZATION
     ========================================================= */
@@ -5944,5 +5981,7 @@ document.addEventListener(
     syncSavedHistoryCards();
     syncFinalPlayingIndicators();
     syncSidebarActiveState();
+
+    
 
 });
