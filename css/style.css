@@ -10202,3 +10202,14 @@ body.echo-settings-page .settings-section .echo-signout-row .settings-icon svg {
         background-color: #111827 !important;
     }
 }
+
+@media (max-width: 700px) {
+    .sidebar {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
