@@ -6182,11 +6182,11 @@ body.echo-library-page #saved-episodes-section .saved-episode-card:first-child .
     background: #8b5cf6 !important;
 }
 body.echo-home-page .trending-row{
-    gap: 4px !important;
+    gap: 10px !important;
 }
 
 body.echo-home-page .release-row{
-    gap: 4px !important;
+    gap: 10px !important;
 }
 
 body.echo-home-page .trending-card{
@@ -8401,14 +8401,6 @@ body.echo-library-page #history-section .saved-episode-meta::after{
 }
 
 @media (min-width: 701px) {
-    .trending-section .trending-row{
-        gap: 4px !important;
-    }
-
-.new-releases-section .release-row{
-        gap: 4px !important;
-    }
-
     .trending-section .trending-card{
         flex: 0 0 calc((100% - 20px) / 6) !important;
         max-width: calc((100% - 20px) / 6) !important;
@@ -10211,5 +10203,51 @@ body.echo-settings-page .settings-section .echo-signout-row .settings-icon svg {
     .main-content {
         margin-left: 0 !important;
         width: 100% !important;
+    }
+}
+
+.trending-row {
+    column-gap: 24px!important;
+}
+
+.release-row {
+    column-gap: 24px!important;
+}
+
+
+/* Home page - spacing between podcast cards */
+.release-row,
+.trending-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.release-row .release-card,
+.trending-row .trending-card {
+    width: auto;
+    flex: 1 1 0;
+    margin-right: 20px;
+}
+
+.release-row .release-card:last-child,
+.trending-row .trending-card:last-child {
+    margin-right: 0;
+}
+
+
+
+@media (min-width: 701px) {
+    .new-releases-section .release-card,
+    .trending-section .trending-card {
+        width: 180px !important;
+        min-width: 180px !important;
+        max-width: 180px !important;
+        flex: 0 0 180px !important;
+    }
+
+    .new-releases-section .release-row,
+    .trending-section .trending-row {
+        display: flex !important;
+        gap: 30px !important;
     }
 }
