@@ -5981,7 +5981,22 @@ document.addEventListener("click", function () {
     syncSavedHistoryCards();
     syncFinalPlayingIndicators();
     syncSidebarActiveState();
+ /* =========================================================
+   SHARE BUTTON - VISUAL ONLY
+========================================================= */
 
-    
+document.addEventListener("click", function (event) {
+
+    const shareButton = event.target.closest(".share-button");
+
+    if (!shareButton) {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+}, true);
 
 });

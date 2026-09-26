@@ -10385,3 +10385,8 @@ body.echo-settings-page .settings-section .echo-signout-row .settings-icon svg {
         background: #0f172a !important;
     }
 }
+
+.share-btn {
+    pointer-events: none !important;
+    cursor: default !important;
+}
