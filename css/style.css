@@ -12616,3 +12616,69 @@ body.echo-home-page .hero-buttons .listen-button:active {
         padding: 0 !important;
     }
 }
+@media screen and (max-width: 700px) {
+
+    body.echo-explore-page.echo-inline-show-page
+    .show-details.active {
+        background: #0f172a !important;
+        background-color: #0f172a !important;
+
+        min-height: 100vh !important;
+        height: auto !important;
+
+        box-shadow: none !important;
+    }
+
+    body.echo-explore-page.echo-inline-show-page
+    .show-details.active::before,
+    body.echo-explore-page.echo-inline-show-page
+    .show-details.active::after {
+        content: none !important;
+        display: none !important;
+        background: none !important;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    body.echo-explore-page.echo-inline-show-page
+    section.show-details.active#daily-tech,
+
+    body.echo-explore-page.echo-inline-show-page
+    section.show-details.active#mystery-files,
+
+    body.echo-explore-page.echo-inline-show-page
+    section.show-details.active#laugh-track,
+
+    body.echo-explore-page.echo-inline-show-page
+    section.show-details.active#science-unlocked,
+
+    body.echo-explore-page.echo-inline-show-page
+    section.show-details.active#morning-briefing {
+
+        background: #0f172a !important;
+        background-color: #0f172a !important;
+        min-height: 100vh !important;
+        height: auto !important;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    body.echo-explore-page.echo-inline-show-page
+    .explore-main {
+
+        background: #0f172a !important;
+        background-color: #0f172a !important;
+    }
+
+    body.echo-explore-page.echo-inline-show-page {
+        background: #0f172a !important;
+        background-color: #0f172a !important;
+    }
+
+    html {
+        background: #0f172a !important;
+    }
+}
