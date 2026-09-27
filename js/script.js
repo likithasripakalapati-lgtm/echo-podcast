@@ -1,15 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
-    /* =========================================================
-       ECHO PODCAST WEBSITE — SINGLE JS FILE
-       Visual playback only; no real audio is used.
-    ========================================================= */
-
-    /* =========================================================
-       SHOW DATA
-    ========================================================= */
-
     const SHOWS = {
         "daily-tech": {
             title: "The Daily Tech",
@@ -202,7 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    /* Keep legacy single-episode fields in sync. */
     Object.keys(SHOWS).forEach(function (showId) {
         const show = SHOWS[showId];
 
@@ -213,9 +203,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const SHOW_ORDER = Object.keys(SHOWS);
 
-    /* =========================================================
-       PAGE DETECTION
-    ========================================================= */
 
     const pageName = window.location.pathname
         .split("/")
@@ -241,24 +228,12 @@ const isFullRefresh =
 const refreshShowId =
     new URLSearchParams(window.location.search).get("show");
 
-/* =========================================================
-   REFRESH BEHAVIOR
-   Every refresh stops the player completely.
-   Extended Page refresh redirects to normal Home.
-========================================================= */
 
 if (isFullRefresh) {
 
-    /*
-     * Never restore player state after a refresh.
-     */
     sessionStorage.removeItem("echoNavigationRestore");
     localStorage.removeItem("echoPlayerState");
 
-    /*
-     * If refreshing a Podcast Extended Page,
-     * go directly to the normal Home page.
-     */
     if (
         refreshShowId &&
         SHOWS[refreshShowId]
@@ -268,10 +243,7 @@ if (isFullRefresh) {
     }
 }
 
-/*
- * Keep the existing refresh behavior for the other
- * main sections unchanged.
- */
+
 if (isFullRefresh && !isHomePage) {
     sessionStorage.removeItem("echoNavigationRestore");
     localStorage.removeItem("echoPlayerState");
@@ -297,11 +269,6 @@ if (isFullRefresh && !isHomePage) {
         "echo-settings-page",
         isSettingsPage
     );
-
-    /* =========================================================
-       DOM ELEMENTS
-    ========================================================= */
-
     const musicPlayer =
         document.getElementById("musicPlayer");
 
@@ -455,10 +422,6 @@ if (isFullRefresh && !isHomePage) {
     const normalVolumeDot =
         document.getElementById("volumeDot");
 
-    /* =========================================================
-       PLAYER STATE
-    ========================================================= */
-
     let currentEpisode = null;
     let currentShowId = "";
     let currentTime = 0;
@@ -501,10 +464,6 @@ if (isFullRefresh && !isHomePage) {
         0,
         Math.min(1, volume)
     );
-
-    /* =========================================================
-       GENERAL HELPERS
-    ========================================================= */
 
     function normalize(value) {
         return String(value || "")
@@ -892,11 +851,6 @@ if (isFullRefresh && !isHomePage) {
                 formatTime(show.duration)
         };
     }
-
-    /* =========================================================
-       PLAYER DISPLAY
-    ========================================================= */
-
     function updatePlayIcon() {
         [
             mainPlay,
@@ -1109,6 +1063,199 @@ if (isFullRefresh && !isHomePage) {
         }
     }
 
+
+    function setPlayerContentState(showContent) {
+        if (!musicPlayer) {
+            return;
+        }
+
+        const info =
+            musicPlayer.querySelector(
+                ".player-info"
+            );
+
+        const controls =
+            musicPlayer.querySelector(
+                ".player-controls"
+            );
+
+        const volumeControl =
+            musicPlayer.querySelector(
+                ".player-volume"
+            );
+
+        const expandButton =
+            musicPlayer.querySelector(
+                "#fullscreenButton"
+            );
+
+        if (showContent) {
+            musicPlayer.classList.remove(
+                "empty"
+            );
+
+            musicPlayer.classList.add(
+                "show"
+            );
+
+            musicPlayer.hidden = false;
+            musicPlayer.removeAttribute(
+                "hidden"
+            );
+            musicPlayer.style.setProperty(
+                "display",
+                "flex",
+                "important"
+            );
+            musicPlayer.style.setProperty(
+                "visibility",
+                "visible",
+                "important"
+            );
+            musicPlayer.style.setProperty(
+                "opacity",
+                "1",
+                "important"
+            );
+
+            if (info) {
+                info.hidden = false;
+                info.removeAttribute("hidden");
+                info.style.setProperty(
+                    "display",
+                    "flex",
+                    "important"
+                );
+                info.style.setProperty(
+                    "visibility",
+                    "visible",
+                    "important"
+                );
+                info.style.setProperty(
+                    "opacity",
+                    "1",
+                    "important"
+                );
+            }
+
+            if (controls) {
+                controls.hidden = false;
+                controls.removeAttribute("hidden");
+                controls.style.setProperty(
+                    "display",
+                    "flex",
+                    "important"
+                );
+                controls.style.setProperty(
+                    "visibility",
+                    "visible",
+                    "important"
+                );
+                controls.style.setProperty(
+                    "opacity",
+                    "1",
+                    "important"
+                );
+            }
+
+            if (volumeControl) {
+                volumeControl.hidden = false;
+                volumeControl.removeAttribute("hidden");
+                volumeControl.style.setProperty(
+                    "display",
+                    "flex",
+                    "important"
+                );
+                volumeControl.style.setProperty(
+                    "visibility",
+                    "visible",
+                    "important"
+                );
+                volumeControl.style.setProperty(
+                    "opacity",
+                    "1",
+                    "important"
+                );
+            }
+
+            if (expandButton) {
+                expandButton.hidden = false;
+                expandButton.removeAttribute("hidden");
+                expandButton.style.setProperty(
+                    "display",
+                    "flex",
+                    "important"
+                );
+                expandButton.style.setProperty(
+                    "visibility",
+                    "visible",
+                    "important"
+                );
+                expandButton.style.setProperty(
+                    "opacity",
+                    "1",
+                    "important"
+                );
+            }
+        } else {
+            musicPlayer.classList.add(
+                "empty"
+            );
+
+            musicPlayer.classList.remove(
+                "show"
+            );
+
+            musicPlayer.hidden = false;
+            musicPlayer.removeAttribute(
+                "hidden"
+            );
+            musicPlayer.style.setProperty(
+                "display",
+                "flex",
+                "important"
+            );
+            musicPlayer.style.removeProperty(
+                "visibility"
+            );
+            musicPlayer.style.removeProperty(
+                "opacity"
+            );
+
+            if (info) {
+                info.style.setProperty(
+                    "display",
+                    "none",
+                    "important"
+                );
+            }
+
+            if (controls) {
+                controls.style.setProperty(
+                    "display",
+                    "none",
+                    "important"
+                );
+            }
+
+            if (volumeControl) {
+                volumeControl.style.setProperty(
+                    "display",
+                    "none",
+                    "important"
+                );
+            }
+
+            if (expandButton) {
+                expandButton.style.setProperty(
+                    "display",
+                    "none",
+                    "important"
+                );
+            }
+        }
+    }
+
     function updatePlayerDisplay() {
         if (!currentEpisode) {
             return;
@@ -1132,24 +1279,15 @@ if (isFullRefresh && !isHomePage) {
                 currentEpisode.show;
         }
 
-        if (musicPlayer) {
-            musicPlayer.classList.remove(
-                "empty"
-            );
-
-            musicPlayer.classList.add(
-                "show"
-            );
-
-            musicPlayer.style.display =
-                "flex";
-        }
-
         if (playerEmpty) {
-            playerEmpty.style.display =
-                "none";
+            playerEmpty.style.setProperty(
+                "display",
+                "none",
+                "important"
+            );
         }
 
+        setPlayerContentState(true);
         updatePlayIcon();
     }
 
@@ -1183,9 +1321,6 @@ if (isFullRefresh && !isHomePage) {
         updateNormalVolume();
     }
 
-    /* =========================================================
-       PLAYER STATE / PLAYBACK
-    ========================================================= */
 
     function clearPlaybackTimer() {
         if (playbackTimer) {
@@ -1241,6 +1376,7 @@ if (isFullRefresh && !isHomePage) {
 
         isPlaying = true;
 
+        updatePlayerDisplay();
         updatePlayIcon();
         updateContinueIndicator();
 
@@ -1300,6 +1436,30 @@ if (isFullRefresh && !isHomePage) {
         }
     }
 
+    function playVisualEpisode(episode) {
+        if (!episode) {
+            return false;
+        }
+
+        clearPlaybackTimer();
+
+        currentEpisode = episode;
+        currentShowId = episode.showId || "";
+        currentTime =
+            Number(episode.startTime) ||
+            0;
+        isPlaying = false;
+
+        updatePlayerDisplay();
+        updateFullscreenDisplay();
+        updateContinueIndicator();
+
+        startPlayback();
+        savePlayerState();
+
+        return true;
+    }
+
     function openEpisodePlayer(element) {
         const card =
             element?.closest(
@@ -1338,24 +1498,12 @@ if (isFullRefresh && !isHomePage) {
             );
         }
 
-        currentEpisode = episode;
-        currentTime =
-            episode.startTime;
-
-        updatePlayerDisplay();
-        updateFullscreenDisplay();
-        updateContinueIndicator();
-
-        startPlayback();
-        savePlayerState();
+        playVisualEpisode(episode);
     }
 
     window.openEpisodePlayer =
         openEpisodePlayer;
 
-    /* =========================================================
-       PLAYING INDICATORS
-    ========================================================= */
 
     function ensureUniversalPlayingIndicator(
         card
@@ -1521,10 +1669,6 @@ if (isFullRefresh && !isHomePage) {
     }
 
     function syncFinalPlayingIndicators() {
-        /*
-         * Artwork / Library cards / Saved / History
-         * must not keep the universal playing bars.
-         */
         document
             .querySelectorAll(
                 ".podcast-card .echo-universal-playing-indicator, " +
@@ -1537,10 +1681,6 @@ if (isFullRefresh && !isHomePage) {
                 indicator.remove();
             });
 
-        /*
-         * Continue + show episode lists are
-         * the places where the bars are allowed.
-         */
         document
             .querySelectorAll(
                 ".continue-section .episode, " +
@@ -1578,9 +1718,6 @@ if (isFullRefresh && !isHomePage) {
             });
     }
 
-    /* =========================================================
-       SHOW PAGE
-    ========================================================= */
 
     function populateShowPage(showId) {
         if (
@@ -1913,12 +2050,6 @@ if (isFullRefresh && !isHomePage) {
 
     section.classList.toggle("echo-no-episodes", !show.hasEpisodes);
 }
-    /* =========================================================
-       SHOW ACTION BUTTONS
-       Exactly:
-       Latest Episode → Heart + Subscribe → Share
-    ========================================================= */
-
     function ensureShowActionButtons() {
         document
             .querySelectorAll(
@@ -1973,9 +2104,7 @@ if (isFullRefresh && !isHomePage) {
                     "favorite-button"
                 );
 
-                /*
-                 * Remove duplicate controls.
-                 */
+               
                 actions
                     .querySelectorAll(
                         ":scope > .latest-episode-button"
@@ -2043,10 +2172,7 @@ if (isFullRefresh && !isHomePage) {
                         }
                     );
 
-                /*
-                 * Build the combined Heart + Subscribe
-                 * control exactly once.
-                 */
+             
                 const wasSubscribed =
                     subscribe.classList.contains(
                         "subscribed"
@@ -2252,10 +2378,6 @@ if (isFullRefresh && !isHomePage) {
                 );
             });
     }
-
-    /* =========================================================
-       EXPLORE TOP CHARTS
-    ========================================================= */
 
     function formatTopChartSubscriber(
         value
@@ -2590,9 +2712,6 @@ if (isFullRefresh && !isHomePage) {
             });
     }
 
-    /* =========================================================
-       SHOW EPISODE NUMBERS
-    ========================================================= */
 
     function normalizeShowEpisodeNumbers() {
         document
@@ -2619,10 +2738,6 @@ if (isFullRefresh && !isHomePage) {
                 }
             );
     }
-
-    /* =========================================================
-       SHOW / PAGE CONTAINERS
-    ========================================================= */
 
     function getPageContainer() {
         if (isHomePage) {
@@ -2676,10 +2791,6 @@ if (isFullRefresh && !isHomePage) {
                 );
             });
 
-        /*
-         * Only hide the normal content
-         * of the current page.
-         */
         if (container) {
             Array.from(
                 container.children
@@ -2705,13 +2816,6 @@ if (isFullRefresh && !isHomePage) {
         );
     }
 
-    /*
-     * Restore Home / Explore / Library
-     * back to their normal layouts.
-     *
-     * IMPORTANT:
-     * This does NOT reset the player.
-     */
     function restoreNormalPageView(
         updateUrl = true
     ) {
@@ -2870,13 +2974,6 @@ if (isFullRefresh && !isHomePage) {
             from
         );
 
-        /*
-         * User opened an extended page:
-         * keep the normal page in history.
-         *
-         * Initial URL restoration:
-         * do not create another history entry.
-         */
         if (updateHistory) {
             window.history.pushState(
                 {},
@@ -3025,10 +3122,6 @@ if (isFullRefresh && !isHomePage) {
     window.showAbout =
         showAbout;
 
-    /* =========================================================
-       LIBRARY TABS
-    ========================================================= */
-
     function activateLibraryTab(
         button
     ) {
@@ -3136,10 +3229,6 @@ if (isFullRefresh && !isHomePage) {
         }
     }
 
-    /* =========================================================
-       FULLSCREEN MUSIC PLAYER
-    ========================================================= */
-
     function openExtendedPlayer() {
         if (
             !currentEpisode ||
@@ -3147,6 +3236,8 @@ if (isFullRefresh && !isHomePage) {
         ) {
             return;
         }
+
+        updatePlayerDisplay();
 
         fullscreenPlayer.classList.add(
             "show"
@@ -3173,9 +3264,6 @@ if (isFullRefresh && !isHomePage) {
         savePlayerState();
     }
 
-    /* =========================================================
-       FULLSCREEN PROGRESS BAR
-    ========================================================= */
 
     function bindProgressBar() {
         if (
@@ -3269,9 +3357,6 @@ if (isFullRefresh && !isHomePage) {
         );
     }
 
-    /* =========================================================
-       VOLUME — NORMAL PLAYER
-    ========================================================= */
 
     function bindNormalVolumeDrag() {
         const bar =
@@ -3377,9 +3462,6 @@ if (isFullRefresh && !isHomePage) {
         );
     }
 
-    /* =========================================================
-       VOLUME — FULLSCREEN PLAYER
-    ========================================================= */
 
     function bindFullscreenVolumeDrag() {
         const bar =
@@ -3542,9 +3624,6 @@ if (isFullRefresh && !isHomePage) {
         );
     }
 
-    /* =========================================================
-       PREVIOUS / NEXT
-    ========================================================= */
 
     function getCurrentEpisodeCards() {
         const section =
@@ -3652,30 +3731,15 @@ if (isFullRefresh && !isHomePage) {
                 );
 
             if (episode) {
-                currentEpisode =
-                    episode;
-
-                currentTime =
-                    episode.startTime;
-
-                updatePlayerDisplay();
-                updateFullscreenDisplay();
-
-                startPlayback();
-
-                savePlayerState();
+                playVisualEpisode(
+                    episode
+                );
 
                 return;
             }
         }
     }
 
-    /* =========================================================
-       LIBRARY HISTORY
-    ========================================================= */
-/* =========================================================
-   LIBRARY HISTORY — EXACT SIX ITEMS IN REQUIRED ORDER
-========================================================= */
 function ensureLibraryHistoryEpisodes() {
     if (!isLibraryPage) return;
 
@@ -3851,10 +3915,6 @@ function ensureLibraryHistoryEpisodes() {
                 seen.add(id);
             });
     }
-
-    /* =========================================================
-       SETTINGS
-    ========================================================= */
 
     function normalizeSettingsUi() {
         if (!isSettingsPage) {
@@ -4164,10 +4224,6 @@ function ensureLibraryHistoryEpisodes() {
         );
     }
 
-    /* =========================================================
-       PLAYER RESET
-    ========================================================= */
-
     function resetPlayerForPageLoad() {
         currentEpisode = null;
         currentShowId = "";
@@ -4176,26 +4232,18 @@ function ensureLibraryHistoryEpisodes() {
 
         clearPlaybackTimer();
 
-        if (musicPlayer) {
-            musicPlayer.classList.add(
-                "empty"
-            );
-
-            musicPlayer.classList.remove(
-                "show"
-            );
-
-            musicPlayer.style.display =
-                "flex";
-        }
-
         if (playerEmpty) {
             playerEmpty.textContent =
-                "Select an episode to start listening";
+                "Select an episode to start Listening";
 
-            playerEmpty.style.display =
-                "flex";
+            playerEmpty.style.setProperty(
+                "display",
+                "flex",
+                "important"
+            );
         }
+
+        setPlayerContentState(false);
 
         if (playerImage) {
             playerImage.removeAttribute(
@@ -4219,10 +4267,6 @@ function ensureLibraryHistoryEpisodes() {
         updatePlayIcon();
         updateContinueIndicator();
     }
-
-    /* =========================================================
-       RESTORE PLAYER STATE
-    ========================================================= */
 
     function restorePlayerState() {
         const raw =
@@ -4368,6 +4412,10 @@ function ensureLibraryHistoryEpisodes() {
                 )
         };
 
+        currentShowId =
+            currentEpisode.showId ||
+            "";
+
         currentTime =
             Math.max(
                 0,
@@ -4398,9 +4446,6 @@ function ensureLibraryHistoryEpisodes() {
         return true;
     }
 
-    /* =========================================================
-       LIBRARY / EPISODE HOVER VIDEO BUTTONS
-    ========================================================= */
 
     function ensureEpisodeHoverVideoButtons() {
         document
@@ -4498,9 +4543,6 @@ function ensureLibraryHistoryEpisodes() {
             });
     }
 
-    /* =========================================================
-       HOME SHOW NAVIGATION
-    ========================================================= */
 
     if (isHomePage) {
         document
@@ -4514,9 +4556,23 @@ function ensureLibraryHistoryEpisodes() {
                         event.preventDefault();
                         event.stopPropagation();
 
-                        openShow(
+                        const showId =
                             button.dataset.showId ||
-                                "daily-tech",
+                            "daily-tech";
+
+                        const episode =
+                            createEpisodeFromShow(
+                                showId
+                            );
+
+                        if (episode) {
+                            playVisualEpisode(
+                                episode
+                            );
+                        }
+
+                        openShow(
+                            showId,
                             "home"
                         );
                     }
@@ -4532,12 +4588,13 @@ function ensureLibraryHistoryEpisodes() {
                     "click",
                     function (event) {
                         if (
-                            event.target.closest(
-                                ".video-button"
-                            )
-                        ) {
-                            return;
-                        }
+    event.target.closest(
+        ".video-button"
+    ) &&
+    window.innerWidth > 700
+) {
+    return;
+}
 
                         event.preventDefault();
                         event.stopPropagation();
@@ -4551,20 +4608,12 @@ function ensureLibraryHistoryEpisodes() {
             });
     }
 
-    /* =========================================================
-       MAIN CLICK HANDLING
-    ========================================================= */
 
     document.addEventListener(
         "click",
         function (event) {
             const target =
                 event.target;
-
-            /* -------------------------------------------------
-               See All
-            ------------------------------------------------- */
-
             const anchor =
                 target.closest("a");
 
@@ -4579,10 +4628,6 @@ function ensureLibraryHistoryEpisodes() {
 
                 return;
             }
-
-            /* -------------------------------------------------
-               Home Listen Now
-            ------------------------------------------------- */
 
             const listenButton =
                 target.closest(
@@ -4600,26 +4645,13 @@ function ensureLibraryHistoryEpisodes() {
                     );
 
                 if (episode) {
-                    currentEpisode =
-                        episode;
-
-                    currentTime =
-                        episode.startTime;
-
-                    updatePlayerDisplay();
-                    updateFullscreenDisplay();
-                    updateContinueIndicator();
-
-                    startPlayback();
-                    savePlayerState();
+                    playVisualEpisode(
+                        episode
+                    );
                 }
 
                 return;
             }
-
-            /* -------------------------------------------------
-               Home View Show
-            ------------------------------------------------- */
 
             const viewButton =
                 target.closest(
@@ -4630,17 +4662,27 @@ function ensureLibraryHistoryEpisodes() {
                 event.preventDefault();
                 event.stopPropagation();
 
-                openShow(
+                const showId =
                     viewButton.dataset.showId ||
-                        "daily-tech"
+                    "daily-tech";
+
+                const episode =
+                    createEpisodeFromShow(
+                        showId
+                    );
+
+                if (episode) {
+                    playVisualEpisode(
+                        episode
+                    );
+                }
+
+                openShow(
+                    showId
                 );
 
                 return;
             }
-
-            /* -------------------------------------------------
-               Video Buttons
-            ------------------------------------------------- */
 
             const videoButton =
                 target.closest(
@@ -4709,26 +4751,14 @@ function ensureLibraryHistoryEpisodes() {
                     );
 
                 if (episode) {
-                    currentEpisode =
-                        episode;
-
-                    currentTime =
-                        episode.startTime;
-
-                    updatePlayerDisplay();
-                    updateFullscreenDisplay();
-                    updateContinueIndicator();
-
-                    startPlayback();
-                    savePlayerState();
+                    playVisualEpisode(
+                        episode
+                    );
                 }
 
                 return;
             }
 
-            /* -------------------------------------------------
-               Podcast Card
-            ------------------------------------------------- */
 
             const podcastCard =
                 target.closest(
@@ -4753,10 +4783,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Saved / History Cards
-            ------------------------------------------------- */
-
             const savedOrHistoryCard =
                 target.closest(
                     ".saved-episode-card, " +
@@ -4773,11 +4799,6 @@ function ensureLibraryHistoryEpisodes() {
 
                 return;
             }
-
-            /* -------------------------------------------------
-               Episode Play Buttons
-            ------------------------------------------------- */
-
             const episodeButton =
                 target.closest(
                     ".episode-play, " +
@@ -4797,10 +4818,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Continue Listening
-            ------------------------------------------------- */
-
             const continueItem =
                 target.closest(
                     ".continue-section .episode, " +
@@ -4819,9 +4836,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Library Card
-            ------------------------------------------------- */
 
             const libraryCard =
                 target.closest(
@@ -4864,9 +4878,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Explore Charts
-            ------------------------------------------------- */
 
             const chartCard =
                 target.closest(
@@ -4892,9 +4903,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Library Tabs
-            ------------------------------------------------- */
 
             const libraryTab =
                 target.closest(
@@ -4911,10 +4919,6 @@ function ensureLibraryHistoryEpisodes() {
 
                 return;
             }
-
-            /* -------------------------------------------------
-               Main Player Controls
-            ------------------------------------------------- */
 
             if (
                 target.closest(
@@ -4968,9 +4972,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Fullscreen Controls
-            ------------------------------------------------- */
 
             if (
                 target.closest(
@@ -5024,10 +5025,7 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /*
-             * Fullscreen skip controls that are intentionally
-             * visual-only.
-             */
+            
             const fullscreenSkip =
                 target.closest(
                     ".fullscreen-skip"
@@ -5040,9 +5038,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Playback Speed
-            ------------------------------------------------- */
 
             const speed =
                 target.closest(
@@ -5078,10 +5073,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Latest Episode
-            ------------------------------------------------- */
-
             const latest =
                 target.closest(
                     ".latest-episode-button"
@@ -5110,10 +5101,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Show Episode Card
-            ------------------------------------------------- */
-
             const showEpisodeCard =
                 target.closest(
                     ".show-details " +
@@ -5137,9 +5124,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Subscribe
-            ------------------------------------------------- */
 
             const subscribeButton =
                 target.closest(
@@ -5195,10 +5179,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Favorite / Heart
-            ------------------------------------------------- */
-
             const favorite =
                 target.closest(
                     ".favorite-button, " +
@@ -5217,9 +5197,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Share
-            ------------------------------------------------- */
 
             const share =
                 target.closest(
@@ -5276,9 +5253,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Bottom Utility Icons
-            ------------------------------------------------- */
 
             const utility =
                 target.closest(
@@ -5296,9 +5270,6 @@ function ensureLibraryHistoryEpisodes() {
                 return;
             }
 
-            /* -------------------------------------------------
-               Show Tabs
-            ------------------------------------------------- */
 
             const showTab =
                 target.closest(
@@ -5330,11 +5301,6 @@ function ensureLibraryHistoryEpisodes() {
             }
         }
     );
-
-    /* =========================================================
-       URL / BROWSER HISTORY
-       Fixes Home Extended Page restoration.
-    ========================================================= */
 
     function handleBrowserHistory() {
         const url =
@@ -5393,10 +5359,6 @@ function ensureLibraryHistoryEpisodes() {
         }
     }
 
-    /* =========================================================
-       INITIAL PAGE NORMALIZATION
-    ========================================================= */
-
     document
         .querySelectorAll(
             ".hash-icon"
@@ -5432,10 +5394,6 @@ function ensureLibraryHistoryEpisodes() {
     updateSpeedLabel();
     updatePlayIcon();
 
-    /* =========================================================
-       RESTORE PLAYER AFTER NAVIGATION
-    ========================================================= */
-
    const echoNavigationRestore =
     sessionStorage.getItem("echoNavigationRestore") === "1";
 
@@ -5443,17 +5401,12 @@ sessionStorage.removeItem("echoNavigationRestore");
 
 if (isFullRefresh) {
 
-    /*
-     * Refresh always starts with an empty/stopped player.
-     */
     localStorage.removeItem("echoPlayerState");
     resetPlayerForPageLoad();
 
 } else if (echoNavigationRestore) {
 
-    /*
-     * Normal navigation can still restore the player.
-     */
+
     if (!restorePlayerState()) {
         resetPlayerForPageLoad();
     }
@@ -5464,19 +5417,11 @@ if (isFullRefresh) {
     resetPlayerForPageLoad();
 }
 
-    /*
-     * Never leave the fullscreen Music File page visible
-     * automatically after normal page navigation.
-     */
     if (fullscreenPlayer) {
         fullscreenPlayer.classList.remove(
             "show"
         );
     }
-
-    /* =========================================================
-       LIBRARY DEFAULT TAB
-    ========================================================= */
 
     if (isLibraryPage) {
         const activeTab =
@@ -5493,13 +5438,6 @@ if (isFullRefresh) {
             );
         }
     }
-
-    /* =========================================================
-       URL SHOW STATE
-       Initial URL restoration does not create another
-       browser history entry.
-    ========================================================= */
-
     const params =
         new URLSearchParams(
             window.location.search
@@ -5536,15 +5474,9 @@ if (isFullRefresh) {
         }
     }
 
-    /* =========================================================
-       SETTINGS FUNCTIONALITY
-    ========================================================= */
 
     setupSettingsFunctionality();
 
-    /* =========================================================
-       URL NORMALIZATION
-    ========================================================= */
 
     document
         .querySelectorAll(
@@ -5571,12 +5503,6 @@ if (isFullRefresh) {
                 );
             }
         });
-/* =========================================================
-   VISUAL-ONLY PLAYER CONTROLS
-   Skip buttons are visual only.
-   Heart + Share are visual only inside Music File Extended Page.
-========================================================= */
-
 document.addEventListener(
     "click",
     function (event) {
@@ -5618,11 +5544,6 @@ document.addEventListener(
     true
 );
 
-    /* =========================================================
-       CROSS-SECTION PLAYER HANDOFF
-       Preserve currently playing music when deliberately
-       navigating between Home / Explore / Library / Settings.
-    ========================================================= */
 
     document.addEventListener(
         "click",
@@ -5697,10 +5618,7 @@ document.addEventListener(
                 return;
             }
 
-            if (
-                currentEpisode &&
-                isPlaying
-            ) {
+            if (currentEpisode) {
                 savePlayerState();
 
                 sessionStorage.setItem(
@@ -5715,10 +5633,6 @@ document.addEventListener(
         },
         true
     );
-
-    /* =========================================================
-       SIDEBAR ACTIVE STATE
-    ========================================================= */
 
     function syncSidebarActiveState() {
         const wanted =
@@ -5766,10 +5680,6 @@ document.addEventListener(
 
     syncSidebarActiveState();
 
-    /* =========================================================
-       BROWSER BACK / FORWARD
-       This is the important Home restoration fix.
-    ========================================================= */
 
     window.addEventListener(
         "popstate",
@@ -5779,10 +5689,6 @@ document.addEventListener(
             syncSidebarActiveState();
         }
     );
-
-    /* =========================================================
-       KEYBOARD / PAGE LIFECYCLE
-    ========================================================= */
 
     window.addEventListener(
         "keydown",
@@ -5809,10 +5715,6 @@ document.addEventListener(
             savePlayerState();
         }
     );
-
-    /* =========================================================
-       HISTORY CLOCK ICONS
-    ========================================================= */
 
     function ensureHistoryClockIcons() {
         if (!isLibraryPage) {
@@ -5901,9 +5803,6 @@ document.addEventListener(
             });
     }
 
-    /* =========================================================
-       SAVED / HISTORY CARD DIMENSIONS
-    ========================================================= */
 
     function syncSavedHistoryCards() {
         if (!isLibraryPage) {
@@ -5973,18 +5872,11 @@ document.addEventListener("click", function () {
         );
     }, 100);
 });
-    /* =========================================================
-       FINAL INITIALIZATION
-    ========================================================= */
 
     ensureHistoryClockIcons();
     syncSavedHistoryCards();
     syncFinalPlayingIndicators();
     syncSidebarActiveState();
- /* =========================================================
-   SHARE BUTTON - VISUAL ONLY
-========================================================= */
-
 document.addEventListener("click", function (event) {
 
     const shareButton = event.target.closest(".share-button");
@@ -5998,5 +5890,109 @@ document.addEventListener("click", function (event) {
     event.stopImmediatePropagation();
 
 }, true);
+document.addEventListener(
+    "click",
+    function (event) {
+
+        const videoButton =
+            event.target.closest(".video-button");
+
+        if (!videoButton) {
+            return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+
+
+
+        const continueEpisode =
+            videoButton.closest(
+                ".continue-section .episode"
+            );
+
+        if (continueEpisode) {
+
+            openEpisodePlayer(
+                continueEpisode
+            );
+
+            return;
+        }
+
+        const savedOrHistory =
+            videoButton.closest(
+                ".saved-episode-card, " +
+                ".history-episode-card"
+            );
+
+        if (savedOrHistory) {
+
+            openEpisodePlayer(
+                savedOrHistory
+            );
+
+            return;
+        }
+
+        const libraryCard =
+            videoButton.closest(
+                ".library-card"
+            );
+
+        if (libraryCard) {
+
+            openEpisodePlayer(
+                libraryCard
+            );
+
+            return;
+        }
+
+        const podcastCard =
+            videoButton.closest(
+                ".podcast-card"
+            );
+
+        if (podcastCard) {
+
+            const showId =
+                getShowIdFromElement(
+                    podcastCard
+                );
+
+            if (!showId) {
+                return;
+            }
+
+            const episode =
+                createEpisodeFromShow(
+                    showId
+                );
+
+            if (!episode) {
+                return;
+            }
+
+            currentEpisode =
+                episode;
+
+            currentTime =
+                episode.startTime;
+
+            updatePlayerDisplay();
+            updateFullscreenDisplay();
+            updateContinueIndicator();
+
+            startPlayback();
+            savePlayerState();
+
+            return;
+        }
+
+    },
+    true
+);
 
 });
