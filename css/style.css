@@ -12580,3 +12580,39 @@ body.echo-home-page .hero-buttons .listen-button:active {
         display: block !important;
     }
 }
+
+/* =====================================================
+   EXPLORE TOP CHARTS -> PODCAST PAGE
+   REMOVE WHITE BOTTOM STRIP
+   MOBILE ONLY
+   ===================================================== */
+
+@media screen and (max-width: 700px) {
+
+    body.echo-explore-page.echo-inline-show-page,
+    body.echo-explore-page.echo-inline-show-page .explore-main,
+    body.echo-explore-page.echo-inline-show-page
+    .explore-main:has(.show-details.active),
+    body.echo-explore-page.echo-inline-show-page
+    .show-details.active {
+        background: #0f172a !important;
+        background-color: #0f172a !important;
+    }
+}
+
+/* =====================================================
+   HOME MOBILE NAV ICON SIZE
+   KEEP EXISTING SIZE/STYLING
+   ===================================================== */
+
+@media screen and (max-width: 700px) {
+
+    body.echo-home-page .mobile-bottom-nav .mobile-nav-icon {
+        display: block !important;
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
